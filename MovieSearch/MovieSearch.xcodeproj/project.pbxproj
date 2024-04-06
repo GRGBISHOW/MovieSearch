@@ -11,13 +11,14 @@
 		82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCD2BC115D50047EA95 /* ContentView.swift */; };
 		82B98CD02BC115D60047EA95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CCF2BC115D60047EA95 /* Assets.xcassets */; };
 		82B98CD32BC115D60047EA95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CD22BC115D60047EA95 /* Preview Assets.xcassets */; };
-		82B98CD52BC115D60047EA95 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CD42BC115D60047EA95 /* Persistence.swift */; };
+		82B98CD52BC115D60047EA95 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CD42BC115D60047EA95 /* PersistentStore.swift */; };
 		82B98CD82BC115D60047EA95 /* MovieSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CD62BC115D60047EA95 /* MovieSearch.xcdatamodeld */; };
 		82B98CE22BC115D60047EA95 /* MovieSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CE12BC115D60047EA95 /* MovieSearchTests.swift */; };
 		82B98CEC2BC115D60047EA95 /* MovieSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CEB2BC115D60047EA95 /* MovieSearchUITests.swift */; };
 		82B98CEE2BC115D60047EA95 /* MovieSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CED2BC115D60047EA95 /* MovieSearchUITestsLaunchTests.swift */; };
 		82B98CFC2BC1178A0047EA95 /* MinimalNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 82B98CFB2BC1178A0047EA95 /* MinimalNetworking */; };
 		82B98CFF2BC117A10047EA95 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 82B98CFE2BC117A10047EA95 /* DesignSystem */; };
+		82B98D112BC11BA90047EA95 /* CoreData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98D102BC11BA90047EA95 /* CoreData+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,13 +44,14 @@
 		82B98CCD2BC115D50047EA95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		82B98CCF2BC115D60047EA95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82B98CD22BC115D60047EA95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		82B98CD42BC115D60047EA95 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		82B98CD42BC115D60047EA95 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		82B98CD72BC115D60047EA95 /* MovieSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieSearch.xcdatamodel; sourceTree = "<group>"; };
 		82B98CDD2BC115D60047EA95 /* MovieSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B98CE12BC115D60047EA95 /* MovieSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchTests.swift; sourceTree = "<group>"; };
 		82B98CE72BC115D60047EA95 /* MovieSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B98CEB2BC115D60047EA95 /* MovieSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchUITests.swift; sourceTree = "<group>"; };
 		82B98CED2BC115D60047EA95 /* MovieSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82B98D102BC11BA90047EA95 /* CoreData+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +170,9 @@
 		82B98D032BC119D20047EA95 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				82B98CD42BC115D60047EA95 /* Persistence.swift */,
 				82B98CD62BC115D60047EA95 /* MovieSearch.xcdatamodeld */,
+				82B98CD42BC115D60047EA95 /* PersistentStore.swift */,
+				82B98D102BC11BA90047EA95 /* CoreData+Helper.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -403,10 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B98CD52BC115D60047EA95 /* Persistence.swift in Sources */,
+				82B98CD52BC115D60047EA95 /* PersistentStore.swift in Sources */,
 				82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */,
 				82B98CD82BC115D60047EA95 /* MovieSearch.xcdatamodeld in Sources */,
 				82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */,
+				82B98D112BC11BA90047EA95 /* CoreData+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
