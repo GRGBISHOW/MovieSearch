@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		82B98CE22BC115D60047EA95 /* MovieSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CE12BC115D60047EA95 /* MovieSearchTests.swift */; };
 		82B98CEC2BC115D60047EA95 /* MovieSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CEB2BC115D60047EA95 /* MovieSearchUITests.swift */; };
 		82B98CEE2BC115D60047EA95 /* MovieSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CED2BC115D60047EA95 /* MovieSearchUITestsLaunchTests.swift */; };
+		82B98CFC2BC1178A0047EA95 /* MinimalNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 82B98CFB2BC1178A0047EA95 /* MinimalNetworking */; };
+		82B98CFF2BC117A10047EA95 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 82B98CFE2BC117A10047EA95 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B98CFC2BC1178A0047EA95 /* MinimalNetworking in Frameworks */,
+				82B98CFF2BC117A10047EA95 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +153,10 @@
 			dependencies = (
 			);
 			name = MovieSearch;
+			packageProductDependencies = (
+				82B98CFB2BC1178A0047EA95 /* MinimalNetworking */,
+				82B98CFE2BC117A10047EA95 /* DesignSystem */,
+			);
 			productName = MovieSearch;
 			productReference = 82B98CC82BC115D50047EA95 /* MovieSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +229,10 @@
 				Base,
 			);
 			mainGroup = 82B98CBF2BC115D50047EA95;
+			packageReferences = (
+				82B98CFA2BC1178A0047EA95 /* XCLocalSwiftPackageReference "../MinimalNetworking" */,
+				82B98CFD2BC117A10047EA95 /* XCLocalSwiftPackageReference "../DesignSystem" */,
+			);
 			productRefGroup = 82B98CC92BC115D50047EA95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -596,6 +608,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		82B98CFA2BC1178A0047EA95 /* XCLocalSwiftPackageReference "../MinimalNetworking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../MinimalNetworking;
+		};
+		82B98CFD2BC117A10047EA95 /* XCLocalSwiftPackageReference "../DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../DesignSystem;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82B98CFB2BC1178A0047EA95 /* MinimalNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MinimalNetworking;
+		};
+		82B98CFE2BC117A10047EA95 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		82B98CD62BC115D60047EA95 /* MovieSearch.xcdatamodeld */ = {
