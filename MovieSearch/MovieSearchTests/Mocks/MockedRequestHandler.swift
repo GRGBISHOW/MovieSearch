@@ -41,7 +41,7 @@ extension URLSessionProtocol {
             return
         }
     
-        guard let mockPath = Bundle(for: MovieSearchTests.self).url(forResource: fileName, withExtension: nil) else {
+        guard let mockPath = Bundle(for: MovieSearchBaseTestCase.self).url(forResource: fileName, withExtension: nil) else {
             XCTFail("couldnt find mock file path")
             return
         }

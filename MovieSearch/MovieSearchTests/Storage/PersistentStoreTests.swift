@@ -64,7 +64,7 @@ class PersistentStoreTests: XCTestCase {
             XCTAssertTrue(value.isEmpty)
             exp.fulfill()
         }).store(in: &disposeBag)
-        
+       
         wait(for: [exp], timeout: 1)
     }
     
