@@ -1,5 +1,5 @@
 //
-//  MockedUtils.swift
+//  Mocked+Utils.swift
 //  MovieSearchTests
 //
 //  Created by Bishow Gurung on 7/4/2024.
