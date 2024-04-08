@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		827284BE2BC3773500FA649E /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284BD2BC3773500FA649E /* MoviesService.swift */; };
+		827284C02BC379C400FA649E /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284BF2BC379C400FA649E /* Pagination.swift */; };
+		827284C32BC37E0600FA649E /* MovieServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284C22BC37E0600FA649E /* MovieServiceTests.swift */; };
 		82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */; };
 		82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCD2BC115D50047EA95 /* ContentView.swift */; };
 		82B98CD02BC115D60047EA95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CCF2BC115D60047EA95 /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		827284BD2BC3773500FA649E /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		827284BF2BC379C400FA649E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		827284C22BC37E0600FA649E /* MovieServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceTests.swift; sourceTree = "<group>"; };
 		82B98CC82BC115D50047EA95 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchApp.swift; sourceTree = "<group>"; };
 		82B98CCD2BC115D50047EA95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		827284C12BC37DCE00FA649E /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				827284C22BC37E0600FA649E /* MovieServiceTests.swift */,
+			);
+			path = ServiceTests;
+			sourceTree = "<group>";
+		};
 		82B98CBF2BC115D50047EA95 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +267,7 @@
 			children = (
 				82B98D1B2BC15C470047EA95 /* Movie.swift */,
 				82B98D1D2BC15C6E0047EA95 /* Movie+CoreData.swift */,
+				827284BF2BC379C400FA649E /* Pagination.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +284,7 @@
 		82B98D092BC11A4A0047EA95 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				827284BD2BC3773500FA649E /* MoviesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -336,6 +352,7 @@
 		82D59D632BC2600100FAC09B /* MovieSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				827284C12BC37DCE00FA649E /* ServiceTests */,
 				82D59D7D2BC2B34700FAC09B /* Stubs */,
 				82D59D642BC2600F00FAC09B /* DataProviderTests */,
 			);
@@ -504,6 +521,7 @@
 				82D59D6C2BC261F400FAC09B /* MoviesWebDataProvider.swift in Sources */,
 				82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */,
 				82B98D1E2BC15C6E0047EA95 /* Movie+CoreData.swift in Sources */,
+				827284BE2BC3773500FA649E /* MoviesService.swift in Sources */,
 				82B98CD82BC115D60047EA95 /* MovieSearch.xcdatamodeld in Sources */,
 				82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */,
 				82B98D1A2BC15C030047EA95 /* AppDelegate.swift in Sources */,
@@ -511,6 +529,7 @@
 				82B98D112BC11BA90047EA95 /* CoreData+Helper.swift in Sources */,
 				82B98D1C2BC15C470047EA95 /* Movie.swift in Sources */,
 				82B98D182BC15BD50047EA95 /* NetworkConfiguration.swift in Sources */,
+				827284C02BC379C400FA649E /* Pagination.swift in Sources */,
 				82D59D562BC2246400FAC09B /* MoviesDBDataProvider.swift in Sources */,
 				82D59D682BC2609700FAC09B /* NetworkMonitor.swift in Sources */,
 			);
@@ -522,6 +541,7 @@
 			files = (
 				82D59D782BC2B1EE00FAC09B /* MoviesWebDataProviderTests.swift in Sources */,
 				82D59D542BC2240B00FAC09B /* PersistentStoreTests.swift in Sources */,
+				827284C32BC37E0600FA649E /* MovieServiceTests.swift in Sources */,
 				82D59D742BC263C000FAC09B /* NetworkMonitor+Mock.swift in Sources */,
 				82D59D702BC262B300FAC09B /* MockedRequestHandler.swift in Sources */,
 				82D59D762BC2B13100FAC09B /* MoviesDBDataProviderTests.swift in Sources */,

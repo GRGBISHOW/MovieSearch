@@ -12,13 +12,12 @@ import Network
 
 class MoviesWebDataProvider {
     private var lastFetchedPage = 1
-    func loadMovies(searchText: String, loadType: LoadType) -> AnyPublisher<PaginationState, Error> {
+    func loadMovies(searchText: String, loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error> {
         MovieAPI.setQueryParams(with: searchText, page: nextpage(loadType: loadType))
         return MovieAPI.load()
-            .map {[weak self] pagination in
-                guard let self else { return .idle }
+            .map {pagination in
                 self.lastFetchedPage = pagination.page
-                return .loaded(data: pagination.results,
+                return (models: pagination.results,
                                info: pagination.page < pagination.totalPages
                                ? .more : .noMore)
             }
@@ -45,24 +44,6 @@ extension MoviesWebDataProvider {
             queryParameters()
         }
     }
-    
-    struct Pagination<T: Codable>: Codable {
-        let page: Int
-        let results: [T]
-        let totalPages: Int
-        let totalResults: Int
-        
-        enum CodingKeys: String, CodingKey {
-            case page
-            case results
-            case totalPages = "total_pages"
-            case totalResults = "total_results"
-        }
-        
-        var pageDetails: (Int, Int) {
-            (page, totalPages)
-        }
-    }
 }
 
 extension MoviesWebDataProvider.MovieAPI {
@@ -80,19 +61,5 @@ extension MoviesWebDataProvider.MovieAPI {
     }
 }
 
-enum PaginationState {
-    enum PageInfo {
-        case more
-        case noMore
-    }
-    case loaded(data: [Movie], info: PageInfo)
-    case idle
-    
-}
-
-enum LoadType {
-    case initial
-    case more
-}
 
 

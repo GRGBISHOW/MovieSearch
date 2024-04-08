@@ -31,7 +31,9 @@ final class MoviesWebDataProviderTests: MovieSearchBaseTestCase {
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchSuccessResponse.json", response: nil)
         let subs = webDataProvider
             .loadMovies(searchText: "", loadType: .initial)
-            .mapPagination()
+            .map { result -> (Int, PageInfo) in
+                (result.models.count, result.info)
+            }
             .testableSubscriber()
         let count = try XCTUnwrap(subs.emittedValues.last?.0)
         let pageInfo = try XCTUnwrap(subs.emittedValues.last?.1)
@@ -47,7 +49,9 @@ final class MoviesWebDataProviderTests: MovieSearchBaseTestCase {
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchLastPageResponse.json", response: nil)
         let subs = webDataProvider
             .loadMovies(searchText: "bis", loadType: .more)
-            .mapPagination()
+            .map { result -> (Int, PageInfo) in
+                (result.models.count, result.info)
+            }
             .testableSubscriber()
         let count = try XCTUnwrap(subs.emittedValues.last?.0)
         let pageInfo = try XCTUnwrap(subs.emittedValues.last?.1)
