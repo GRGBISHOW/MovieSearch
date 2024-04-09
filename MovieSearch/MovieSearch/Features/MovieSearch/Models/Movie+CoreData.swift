@@ -21,6 +21,7 @@ extension Movie {
         movie.overview = overview
         movie.releaseDate = releaseDate
         movie.posterImage = posterImage
+        movie.backdropImage = backdropImage
         return movie
     }
     
@@ -30,8 +31,9 @@ extension Movie {
         let overview = managedObject.overview ?? "No overview"
         let releaseDate = managedObject.releaseDate ?? "No Release date Published Yet"
         let posterImage = managedObject.posterImage ?? ""
+        let backdropImage = managedObject.backdropImage ?? ""
         
-        self.init(id: id, title: title, overview: overview , releaseDate: releaseDate , posterImage: posterImage )
+        self.init(id: id, title: title, overview: overview , releaseDate: releaseDate , posterImage: posterImage, backdropImage: backdropImage )
     }
 }
 

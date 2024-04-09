@@ -10,7 +10,7 @@ import DesignSystem
 import SwiftUI
 
 struct MovieSearchView: View {
-    @ObservedObject var viewModel: MovieSearchViewModel
+    @StateObject var viewModel: MovieSearchViewModel
     @State var search = ""
     @State private var viewDidLoad = false
     private var searchResults: Set<Movie> {
@@ -26,7 +26,7 @@ struct MovieSearchView: View {
                         ListView {
                             Section {
                                 ForEach(Array(searchResults)) { item in
-                                    ListItem(leftImageSrc: .system("pencil.tip.crop.circle.fill"), title: item.title, description: item.releaseDate, rightSystemImage: "chevron.right.circle")
+                                    ListItem(leftImageSrc: .remote(item.profilePoster ?? String.empty ), title: item.title, description: item.releaseDate, rightSystemImage: "chevron.right.circle")
                                         .background(
                                             NavigationLink("", destination:  MovieDetailsView(selectedMovie: item))
                                                 .opacity(0)
@@ -52,7 +52,7 @@ struct MovieSearchView: View {
                     }
                     
                 }
-                .navigationTitle("Mvoies")
+                .navigationTitle("Movies")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Circle().foregroundColor(viewModel.isInternet ? .green : .red))
                 

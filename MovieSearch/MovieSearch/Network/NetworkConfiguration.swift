@@ -28,3 +28,17 @@ enum APIHost: APIHostable {
     }
 }
 
+enum ImageRepo {
+    static private let baseUrl = "https://image.tmdb.org/t/p/"
+    case small(String)
+    case large(String)
+
+    var path: String {
+        switch self {
+        case let .small(path):
+            return Self.baseUrl + "w92/" + path
+        case let .large(path):
+            return Self.baseUrl + "w300/" + path
+        }
+    }
+}

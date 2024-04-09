@@ -15,31 +15,29 @@ struct MovieDetailsView: View {
             VStack {
                 CardView {
                     VStack(alignment: .leading) {
-                        HStack(alignment: .center) {
-                            VStack(alignment: .leading) {
-                                Text(selectedMovie.title)
-                                    .fontStyle(with: .title)
-                                Text(selectedMovie.releaseDate)
-                                    .fontStyle(with: .headline)
+                        if let imageUrl = selectedMovie.wallPoster {
+                            AsyncCachedImage(url: URL(string: imageUrl),
+                                             content: { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                
+                            },
+                                             placeholder: {
+                                Image(systemName: "photo.on.rectangle.angled")
+                                    .aspectRatio(contentMode: .fit)
+                                    .background(.clear)
                             }
-                            if let imageUrl = selectedMovie.posterImage {
-                                AsyncImage(url: URL(string: imageUrl),
-                                           content: { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                    
-                                },
-                                           placeholder: {
-                                    Image(systemName: "photo.on.rectangle.angled")
-                                        .aspectRatio(contentMode: .fit)
-                                        .background(.clear)
-                                }
-                                )
-                                .frame(maxWidth: Dimension.points32, maxHeight: Dimension.points32)
-                            }
+                            )
                         }
-                        Text(selectedMovie.overview)
-                            .fontStyle(with: .body)
+                        VStack(alignment: .leading, spacing: Dimension.points16) {
+                            Text(selectedMovie.title)
+                                .fontStyle(with: .title)
+                            Text(selectedMovie.releaseDate)
+                                .fontStyle(with: .caption)
+                            Text(selectedMovie.overview)
+                                .fontStyle(with: .body)
+                        }
+                        
                     }
                 }
                 Spacer()
@@ -47,6 +45,6 @@ struct MovieDetailsView: View {
             .padding(Dimension.points16)
             
         }
-      
+        
     }
 }
