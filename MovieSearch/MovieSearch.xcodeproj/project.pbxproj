@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		827284BE2BC3773500FA649E /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284BD2BC3773500FA649E /* MoviesService.swift */; };
 		827284C02BC379C400FA649E /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284BF2BC379C400FA649E /* Pagination.swift */; };
 		827284C32BC37E0600FA649E /* MovieServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284C22BC37E0600FA649E /* MovieServiceTests.swift */; };
+		827284C62BC3FEFA00FA649E /* MinimalNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 827284C52BC3FEFA00FA649E /* MinimalNetworking */; };
+		827284C92BC3FF2900FA649E /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 827284C82BC3FF2900FA649E /* DesignSystem */; };
+		827284CF2BC4D16A00FA649E /* String+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284CE2BC4D16A00FA649E /* String+Formats.swift */; };
 		82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */; };
 		82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCD2BC115D50047EA95 /* ContentView.swift */; };
 		82B98CD02BC115D60047EA95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CCF2BC115D60047EA95 /* Assets.xcassets */; };
@@ -65,6 +68,7 @@
 		827284BD2BC3773500FA649E /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		827284BF2BC379C400FA649E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		827284C22BC37E0600FA649E /* MovieServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceTests.swift; sourceTree = "<group>"; };
+		827284CE2BC4D16A00FA649E /* String+Formats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formats.swift"; sourceTree = "<group>"; };
 		82B98CC82BC115D50047EA95 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchApp.swift; sourceTree = "<group>"; };
 		82B98CCD2BC115D50047EA95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,7 +110,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B98CFC2BC1178A0047EA95 /* MinimalNetworking in Frameworks */,
+				827284C62BC3FEFA00FA649E /* MinimalNetworking in Frameworks */,
 				82B98CFF2BC117A10047EA95 /* DesignSystem in Frameworks */,
+				827284C92BC3FF2900FA649E /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +141,14 @@
 			path = ServiceTests;
 			sourceTree = "<group>";
 		};
+		827284CD2BC4D15600FA649E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				827284CE2BC4D16A00FA649E /* String+Formats.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		82B98CBF2BC115D50047EA95 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +172,7 @@
 		82B98CCA2BC115D50047EA95 /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
+				827284CD2BC4D15600FA649E /* Utils */,
 				82B98D002BC119A70047EA95 /* Dependencies */,
 				82B98D012BC119B30047EA95 /* System */,
 				82B98D022BC119BF0047EA95 /* Network */,
@@ -396,6 +411,8 @@
 			packageProductDependencies = (
 				82B98CFB2BC1178A0047EA95 /* MinimalNetworking */,
 				82B98CFE2BC117A10047EA95 /* DesignSystem */,
+				827284C52BC3FEFA00FA649E /* MinimalNetworking */,
+				827284C82BC3FF2900FA649E /* DesignSystem */,
 			);
 			productName = MovieSearch;
 			productReference = 82B98CC82BC115D50047EA95 /* MovieSearch.app */;
@@ -470,8 +487,8 @@
 			);
 			mainGroup = 82B98CBF2BC115D50047EA95;
 			packageReferences = (
-				82B98CFA2BC1178A0047EA95 /* XCLocalSwiftPackageReference "../MinimalNetworking" */,
-				82B98CFD2BC117A10047EA95 /* XCLocalSwiftPackageReference "../DesignSystem" */,
+				827284C42BC3FEFA00FA649E /* XCRemoteSwiftPackageReference "MinimalNetworking" */,
+				827284C72BC3FF2900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */,
 			);
 			productRefGroup = 82B98CC92BC115D50047EA95 /* Products */;
 			projectDirPath = "";
@@ -530,6 +547,7 @@
 				82B98D1C2BC15C470047EA95 /* Movie.swift in Sources */,
 				82B98D182BC15BD50047EA95 /* NetworkConfiguration.swift in Sources */,
 				827284C02BC379C400FA649E /* Pagination.swift in Sources */,
+				827284CF2BC4D16A00FA649E /* String+Formats.swift in Sources */,
 				82D59D562BC2246400FAC09B /* MoviesDBDataProvider.swift in Sources */,
 				82D59D682BC2609700FAC09B /* NetworkMonitor.swift in Sources */,
 			);
@@ -873,18 +891,36 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		82B98CFA2BC1178A0047EA95 /* XCLocalSwiftPackageReference "../MinimalNetworking" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../MinimalNetworking;
+/* Begin XCRemoteSwiftPackageReference section */
+		827284C42BC3FEFA00FA649E /* XCRemoteSwiftPackageReference "MinimalNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GRGBISHOW/MinimalNetworking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
 		};
-		82B98CFD2BC117A10047EA95 /* XCLocalSwiftPackageReference "../DesignSystem" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../DesignSystem;
+		827284C72BC3FF2900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GRGBISHOW/DesignSystem.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		827284C52BC3FEFA00FA649E /* MinimalNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 827284C42BC3FEFA00FA649E /* XCRemoteSwiftPackageReference "MinimalNetworking" */;
+			productName = MinimalNetworking;
+		};
+		827284C82BC3FF2900FA649E /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 827284C72BC3FF2900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */;
+			productName = DesignSystem;
+		};
 		82B98CFB2BC1178A0047EA95 /* MinimalNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MinimalNetworking;

@@ -30,16 +30,14 @@ final class MoviesWebDataProviderTests: MovieSearchBaseTestCase {
     func test_loadMovies_success() throws {
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchSuccessResponse.json", response: nil)
         let subs = webDataProvider
-            .loadMovies(searchText: "", loadType: .initial)
+            .loadMovies(loadType: .initial)
             .map { result -> (Int, PageInfo) in
                 (result.models.count, result.info)
             }
             .testableSubscriber()
         let count = try XCTUnwrap(subs.emittedValues.last?.0)
         let pageInfo = try XCTUnwrap(subs.emittedValues.last?.1)
-        let searchQuery = try XCTUnwrap(MoviesWebDataProvider.MovieAPI.queryParams?["query"] as? String)
         let page = try XCTUnwrap(MoviesWebDataProvider.MovieAPI.queryParams?["page"] as? Int)
-        XCTAssertTrue(searchQuery.isEmpty)
         XCTAssertEqual(page, 1)
         XCTAssertEqual(count, 3)
         XCTAssertEqual(pageInfo, .more)
@@ -48,16 +46,14 @@ final class MoviesWebDataProviderTests: MovieSearchBaseTestCase {
     func test_last_pagination() throws {
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchLastPageResponse.json", response: nil)
         let subs = webDataProvider
-            .loadMovies(searchText: "bis", loadType: .more)
+            .loadMovies(loadType: .more)
             .map { result -> (Int, PageInfo) in
                 (result.models.count, result.info)
             }
             .testableSubscriber()
         let count = try XCTUnwrap(subs.emittedValues.last?.0)
         let pageInfo = try XCTUnwrap(subs.emittedValues.last?.1)
-        let searchQuery = try XCTUnwrap(MoviesWebDataProvider.MovieAPI.queryParams?["query"] as? String)
         let page = try XCTUnwrap(MoviesWebDataProvider.MovieAPI.queryParams?["page"] as? Int)
-        XCTAssertEqual(searchQuery, "bis")
         XCTAssertEqual(page, 2)
         XCTAssertEqual(count, 1)
         XCTAssertEqual(pageInfo, .noMore)
@@ -71,7 +67,7 @@ final class MoviesWebDataProviderTests: MovieSearchBaseTestCase {
                    headerFields: nil)!
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchSuccessResponse.json", response: mockResponse)
         let subs = webDataProvider
-            .loadMovies(searchText: "", loadType: .initial)
+            .loadMovies(loadType: .initial)
             .testableSubscriber()
         switch subs.completionState {
         case let .failure(err):

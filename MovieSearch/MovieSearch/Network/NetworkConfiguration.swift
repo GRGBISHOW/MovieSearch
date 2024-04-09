@@ -12,6 +12,10 @@ extension Requestable {
     static var host: MinimalNetworking.APIHostable {
         APIHost.development
     }
+    
+    static var session: URLSessionProtocol {
+        Dependencies.network
+    }
 }
 
 enum APIHost: APIHostable {
@@ -19,7 +23,7 @@ enum APIHost: APIHostable {
     var baseUrl: String {
         switch self {
         case .development:
-            "https://api.themoviedb.org/3/"
+            "https://api.themoviedb.org/"
         }
     }
 }

@@ -10,15 +10,15 @@ import Foundation
 import XCTest
 @testable import MovieSearch
 
-final class MovieServicesTests: MovieSearchBaseTestCase {
-    private var movieServices: MovieServices!
+final class MovieServiceTests: MovieSearchBaseTestCase {
+    private var movieServices: MovieService!
     private var dbDataProvider: MoviesDBDataProvider!
     private var disposeBag: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
         dbDataProvider = MoviesDBDataProvider(persistentStore: Dependencies.database)
-        movieServices = MovieServices(dbDataProvider: dbDataProvider)
+        movieServices = MovieService(dbDataProvider: dbDataProvider)
         disposeBag = Set<AnyCancellable>()
     }
     
@@ -34,7 +34,7 @@ final class MovieServicesTests: MovieSearchBaseTestCase {
             true
         }
         Dependencies.network.stubWebRequest(forPath: MoviesWebDataProvider.MovieAPI.path, fileName: "MovieSearchSuccessResponse.json", response: nil)
-        let testSubscriber = movieServices.load(search: "", loadType: .initial)
+        let testSubscriber = movieServices.load(loadType: .initial)
             .map { result -> (Int, PageInfo) in
                 (result.models.count, result.info)
             }
@@ -50,7 +50,7 @@ final class MovieServicesTests: MovieSearchBaseTestCase {
         Dependencies.networkMonitor.isOnline = {
             false
         }
-        let testSubscriber = movieServices.load(search: "alive", loadType: .initial)
+        let testSubscriber = movieServices.searchMovies(searchText: "alive")
             .map { result -> (Int, PageInfo) in
                 (result.models.count, result.info)
             }
@@ -61,4 +61,5 @@ final class MovieServicesTests: MovieSearchBaseTestCase {
         XCTAssertEqual(pageInfo, .noMore)
     }
 }
+
 

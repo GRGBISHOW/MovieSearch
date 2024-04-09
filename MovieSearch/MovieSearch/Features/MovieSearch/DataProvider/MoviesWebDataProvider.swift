@@ -10,13 +10,12 @@ import Foundation
 import MinimalNetworking
 import Network
 
-class MoviesWebDataProvider {
-    private var lastFetchedPage = 1
-    func loadMovies(searchText: String, loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error> {
-        MovieAPI.setQueryParams(with: searchText, page: nextpage(loadType: loadType))
+struct MoviesWebDataProvider {
+    func loadMovies(loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error> {
+        MovieAPI.prepareLoad(loadType: loadType)
         return MovieAPI.load()
-            .map {pagination in
-                self.lastFetchedPage = pagination.page
+            .map { pagination in
+                MovieAPI.lastPage = pagination.page
                 return (models: pagination.results,
                                info: pagination.page < pagination.totalPages
                                ? .more : .noMore)
@@ -26,10 +25,6 @@ class MoviesWebDataProvider {
             }
             .eraseToAnyPublisher()
     }
-    
-    private func nextpage(loadType: LoadType) -> Int {
-        return loadType == .initial ? 1 : lastFetchedPage + 1
-    }
 }
 
 
@@ -38,28 +33,25 @@ extension MoviesWebDataProvider {
     enum MovieAPI: Requestable {
         typealias ResponseType = Pagination<Movie>
         typealias RequestType = EmptyRequest
-        
-        static var path: String { "3/search/movie" }
+       
+        static var path: String { "3/movie/popular" }
         static var queryParams: [String : Any]? {
             queryParameters()
         }
-    }
-}
-
-extension MoviesWebDataProvider.MovieAPI {
-    static private var queryParameters:() -> [String : Any]? = { nil }
-    static func setQueryParams(with searchText: String, page: Int) {
-        queryParameters = {
-            ["api_key": "05273ee9acd38d9c8fed54f19688c49b", // API Keys Should not be stored in local, doing it for temporary
-             "sort_by": "popularity.desc",
-             "language": "en",
-             "include_adult": false,
-             "include_video": false,
-             "query": searchText,
-             "page": page]
+        
+        static private func setQueryParams(page: Int) {
+            queryParameters = {
+                ["api_key": "05273ee9acd38d9c8fed54f19688c49b", // API Keys Should not be stored in local, doing it for temporary
+                 "language": "en",
+                 "sort_by": "popularity.desc",
+                 "include_adult": false,
+                 "page": page]
+            }
+        }
+        static var lastPage = 1
+        static private var queryParameters:() -> [String : Any]? = { nil }
+        static func prepareLoad(loadType: LoadType) {
+            setQueryParams(page:  loadType == .initial ? 1 : lastPage + 1)
         }
     }
 }
-
-
-

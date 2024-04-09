@@ -9,8 +9,13 @@ import Foundation
 import Combine
 import CoreData
 
-struct MoviesDBDataProvider {
+class MoviesDBDataProvider {
     let persistentStore: PersistentStoreProvider
+    private(set) var lastOffset = 0
+    
+    init(persistentStore: PersistentStoreProvider) {
+        self.persistentStore = persistentStore
+    }
     
     func store(movies: [Movie]) -> AnyPublisher<Void, Error> {
         return persistentStore
@@ -21,11 +26,28 @@ struct MoviesDBDataProvider {
             }
     }
     
-    func movies(search: String) -> AnyPublisher<[Movie], Error> {
-        let fetchRequest = MovieMO.movies(search: search)
+    func deleteMovies() -> AnyPublisher<Void, Error>  {
+        return persistentStore
+            .update { context in
+                try MovieMO.delete(in: context)
+            }
+    }
+
+    
+    func movies(search: String = "" , loadType: LoadType, dataAmount: DataAmount) -> AnyPublisher<[Movie], Error> {
+        if dataAmount == .paginated {
+            lastOffset = loadType == .initial ? 0 : lastOffset
+        }
+        let fetchRequest = MovieMO.movies(search: search, offSet: lastOffset, limit: dataAmount.rawValue)
         return persistentStore
             .fetch(fetchRequest) {
                 Movie(managedObject: $0)
+            }.map { [weak self] movies in
+                guard let self else { return movies }
+                if dataAmount == .paginated {
+                    self.lastOffset = self.lastOffset + movies.count
+                }
+                return movies
             }
             .eraseToAnyPublisher()
     }
@@ -37,20 +59,18 @@ struct MoviesDBDataProvider {
             .map { $0 > 0 }
             .eraseToAnyPublisher()
     }
-    
+
 }
 
-
-
 extension MovieMO {
-    static func movies(search: String) -> NSFetchRequest<MovieMO> {
+    static func movies(search: String, offSet: Int, limit: Int) -> NSFetchRequest<MovieMO> {
         let request = newFetchRequest()
         if !search.isEmpty {
             let nameMatch = NSPredicate(format: "title CONTAINS[cd] %@", search)
             request.predicate = nameMatch
         }
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        request.fetchBatchSize = 10
+        request.fetchOffset = offSet
+        request.fetchLimit = limit
         return request
     }
     
@@ -74,4 +94,3 @@ extension MovieMO {
         }
     }
 }
-

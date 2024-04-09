@@ -19,12 +19,6 @@ struct Pagination<T: Codable>: Codable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
-    
-    var pageDetails: (Int, Int) {
-        (page, totalPages)
-    }
-    
-    
 }
 
 enum PageInfo {
@@ -37,4 +31,10 @@ typealias PaginationData<T> = (models: [T], info: PageInfo)
 enum LoadType {
     case initial
     case more
+}
+
+enum DataAmount: Int {
+    case unlimited = 0
+    case paginated = 20
+    case offlineLimit = 50
 }

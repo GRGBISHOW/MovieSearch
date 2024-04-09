@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "designsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GRGBISHOW/DesignSystem.git",
+      "state" : {
+        "revision" : "64f95542aed625e5a99e17673eefb14c28659578",
+        "version" : "0.0.1"
+      }
+    },
+    {
+      "identity" : "minimalnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GRGBISHOW/MinimalNetworking.git",
+      "state" : {
+        "revision" : "b4f80abe40563eb22028061bc32ef373e917d48a",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

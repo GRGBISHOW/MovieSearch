@@ -66,7 +66,7 @@ final class MoviesDBDataProviderTests: MovieSearchBaseTestCase {
                         .setFailureType(to: Error.self)
                         .eraseToAnyPublisher()
                 }
-                return dbDataProvider.movies(search: "alive")
+                return dbDataProvider.movies(search: "Alive", loadType: .initial, dataAmount: .unlimited)
             }
             .sink { _ in
             } receiveValue: { result in
