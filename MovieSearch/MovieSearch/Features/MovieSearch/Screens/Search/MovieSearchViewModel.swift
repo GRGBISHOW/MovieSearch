@@ -13,7 +13,7 @@ class MovieSearchViewModel: ObservableObject {
     private let service: MovieService
     @Published private(set)var movies: Set<Movie> = []
     @Published private(set) var isMorePageAvailable = false
-    @Published private(set) var showError: (Bool, String) = (false, "")
+    @Published var showError: (Bool, String) = (false, "")
     @Published private(set) var isInternet = false
     @Published private(set) var searchedMovies: Set<Movie> = []
     
