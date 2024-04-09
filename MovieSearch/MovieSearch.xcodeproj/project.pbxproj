@@ -13,6 +13,8 @@
 		827284C62BC3FEFA00FA649E /* MinimalNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 827284C52BC3FEFA00FA649E /* MinimalNetworking */; };
 		827284C92BC3FF2900FA649E /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 827284C82BC3FF2900FA649E /* DesignSystem */; };
 		827284CF2BC4D16A00FA649E /* String+Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284CE2BC4D16A00FA649E /* String+Formats.swift */; };
+		827284D12BC4DCDC00FA649E /* MovieSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284D02BC4DCDC00FA649E /* MovieSearchViewModel.swift */; };
+		827284D32BC4DD6500FA649E /* MovieSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284D22BC4DD6400FA649E /* MovieSearchViewModelTests.swift */; };
 		82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */; };
 		82B98CCE2BC115D50047EA95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCD2BC115D50047EA95 /* ContentView.swift */; };
 		82B98CD02BC115D60047EA95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CCF2BC115D60047EA95 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		827284BF2BC379C400FA649E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		827284C22BC37E0600FA649E /* MovieServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceTests.swift; sourceTree = "<group>"; };
 		827284CE2BC4D16A00FA649E /* String+Formats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formats.swift"; sourceTree = "<group>"; };
+		827284D02BC4DCDC00FA649E /* MovieSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewModel.swift; sourceTree = "<group>"; };
+		827284D22BC4DD6400FA649E /* MovieSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewModelTests.swift; sourceTree = "<group>"; };
 		82B98CC82BC115D50047EA95 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchApp.swift; sourceTree = "<group>"; };
 		82B98CCD2BC115D50047EA95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,6 +151,14 @@
 				827284CE2BC4D16A00FA649E /* String+Formats.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		827284D42BC4DD7800FA649E /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				827284D22BC4DD6400FA649E /* MovieSearchViewModelTests.swift */,
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 		82B98CBF2BC115D50047EA95 = {
@@ -316,6 +328,7 @@
 		82B98D0B2BC11A580047EA95 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				827284D02BC4DCDC00FA649E /* MovieSearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -367,6 +380,7 @@
 		82D59D632BC2600100FAC09B /* MovieSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				827284D42BC4DD7800FA649E /* ViewModelTests */,
 				827284C12BC37DCE00FA649E /* ServiceTests */,
 				82D59D7D2BC2B34700FAC09B /* Stubs */,
 				82D59D642BC2600F00FAC09B /* DataProviderTests */,
@@ -550,6 +564,7 @@
 				827284CF2BC4D16A00FA649E /* String+Formats.swift in Sources */,
 				82D59D562BC2246400FAC09B /* MoviesDBDataProvider.swift in Sources */,
 				82D59D682BC2609700FAC09B /* NetworkMonitor.swift in Sources */,
+				827284D12BC4DCDC00FA649E /* MovieSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82D59D782BC2B1EE00FAC09B /* MoviesWebDataProviderTests.swift in Sources */,
+				827284D32BC4DD6500FA649E /* MovieSearchViewModelTests.swift in Sources */,
 				82D59D542BC2240B00FAC09B /* PersistentStoreTests.swift in Sources */,
 				827284C32BC37E0600FA649E /* MovieServiceTests.swift in Sources */,
 				82D59D742BC263C000FAC09B /* NetworkMonitor+Mock.swift in Sources */,
