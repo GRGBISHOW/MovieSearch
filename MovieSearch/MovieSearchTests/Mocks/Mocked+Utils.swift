@@ -9,8 +9,8 @@ import Foundation
 @testable import MovieSearch
 extension Movie {
     static let mockedData: [Movie] = [
-        Movie(id: 123, title: "What you", overview: "What you are doing", releaseDate: "2012-11-11", posterImage: nil),
-        Movie(id: 456, title: "I am alive", overview: "What you are doing being alive", releaseDate: "2012-11-11", posterImage: nil)
+        Movie(id: 123, title: "What you", overview: "What you are doing", releaseDate: "2012-11-11", posterImage: nil, backdropImage: nil),
+        Movie(id: 456, title: "I am alive", overview: "What you are doing being alive", releaseDate: "2012-11-11", posterImage: nil, backdropImage: nil)
     ]
 }
 

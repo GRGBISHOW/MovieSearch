@@ -44,5 +44,16 @@ final class MovieSearchViewModelTests: MovieSearchBaseTestCase {
         viewModel.loadMovies(loadType: .initial)
         wait(for: [exp], timeout: 0.5)
     }
+    
+    func test_searchMovies() throws {
+        _ = dbDataProvider.store(movies: Movie.mockedData).testableSubscriber()
+        let exp = XCTestExpectation(description: #function)
+        viewModel.$searchedMovies.dropFirst().sink { movies in
+            XCTAssertEqual(movies.count, 1)
+            exp.fulfill()
+        }.store(in: &disposeBag)
+        viewModel.searchMovies(searchText: "Alive")
+        wait(for: [exp], timeout: 0.5)
+    }
 }
 
