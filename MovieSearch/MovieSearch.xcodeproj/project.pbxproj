@@ -16,7 +16,7 @@
 		827284D32BC4DD6500FA649E /* MovieSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284D22BC4DD6400FA649E /* MovieSearchViewModelTests.swift */; };
 		827284D62BC4F30500FA649E /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284D52BC4F30500FA649E /* MovieSearchView.swift */; };
 		827284D82BC4FAB800FA649E /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827284D72BC4FAB800FA649E /* MovieDetailView.swift */; };
-		827284DB2BC5316900FA649E /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 827284DA2BC5316900FA649E /* DesignSystem */; };
+		827284DE2BC54F7800FA649E /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 827284DD2BC54F7800FA649E /* DesignSystem */; };
 		82B98CCC2BC115D50047EA95 /* MovieSearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B98CCB2BC115D50047EA95 /* MovieSearchApp.swift */; };
 		82B98CD02BC115D60047EA95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CCF2BC115D60047EA95 /* Assets.xcassets */; };
 		82B98CD32BC115D60047EA95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B98CD22BC115D60047EA95 /* Preview Assets.xcassets */; };
@@ -118,7 +118,7 @@
 				82B98CFC2BC1178A0047EA95 /* MinimalNetworking in Frameworks */,
 				827284C62BC3FEFA00FA649E /* MinimalNetworking in Frameworks */,
 				82B98CFF2BC117A10047EA95 /* DesignSystem in Frameworks */,
-				827284DB2BC5316900FA649E /* DesignSystem in Frameworks */,
+				827284DE2BC54F7800FA649E /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 				82B98CFB2BC1178A0047EA95 /* MinimalNetworking */,
 				82B98CFE2BC117A10047EA95 /* DesignSystem */,
 				827284C52BC3FEFA00FA649E /* MinimalNetworking */,
-				827284DA2BC5316900FA649E /* DesignSystem */,
+				827284DD2BC54F7800FA649E /* DesignSystem */,
 			);
 			productName = MovieSearch;
 			productReference = 82B98CC82BC115D50047EA95 /* MovieSearch.app */;
@@ -497,7 +497,7 @@
 			mainGroup = 82B98CBF2BC115D50047EA95;
 			packageReferences = (
 				827284C42BC3FEFA00FA649E /* XCRemoteSwiftPackageReference "MinimalNetworking" */,
-				827284D92BC5316900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */,
+				827284DC2BC54F7800FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */,
 			);
 			productRefGroup = 82B98CC92BC115D50047EA95 /* Products */;
 			projectDirPath = "";
@@ -912,12 +912,12 @@
 				minimumVersion = 0.0.2;
 			};
 		};
-		827284D92BC5316900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */ = {
+		827284DC2BC54F7800FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GRGBISHOW/DesignSystem.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.2;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -928,9 +928,9 @@
 			package = 827284C42BC3FEFA00FA649E /* XCRemoteSwiftPackageReference "MinimalNetworking" */;
 			productName = MinimalNetworking;
 		};
-		827284DA2BC5316900FA649E /* DesignSystem */ = {
+		827284DD2BC54F7800FA649E /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 827284D92BC5316900FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */;
+			package = 827284DC2BC54F7800FA649E /* XCRemoteSwiftPackageReference "DesignSystem" */;
 			productName = DesignSystem;
 		};
 		82B98CFB2BC1178A0047EA95 /* MinimalNetworking */ = {

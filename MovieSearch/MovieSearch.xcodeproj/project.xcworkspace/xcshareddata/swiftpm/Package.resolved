@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/GRGBISHOW/DesignSystem.git",
       "state" : {
-        "revision" : "d5bc6d7c8ae3f8f6deafb5a9b6c570254330b326",
-        "version" : "0.0.2"
+        "branch" : "main",
+        "revision" : "a0c9590642d3dfe3a268f7ca8e4eaa20c43c1fd7"
       }
     },
     {

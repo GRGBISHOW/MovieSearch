@@ -55,13 +55,11 @@ struct MovieSearchView: View {
                 .navigationTitle("Movies")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Circle().foregroundColor(viewModel.isInternet ? .green : .red))
-                
                 .task {
                     if !viewDidLoad {
                         viewDidLoad = true
                         viewModel.loadMovies(loadType: .initial)
                     }
-                   
                 }
                 .searchable(text: $search, prompt: "Search Movies")
                 .onChange(of: search) { _, newValue in

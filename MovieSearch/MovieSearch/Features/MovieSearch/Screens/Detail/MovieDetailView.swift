@@ -10,6 +10,7 @@ import DesignSystem
 
 struct MovieDetailsView: View {
     var selectedMovie: Movie
+    @State var showError: (Bool, String) = (false, "")
     var body: some View {
         ContainerView {
             VStack {
@@ -37,13 +38,22 @@ struct MovieDetailsView: View {
                             Text(selectedMovie.overview)
                                 .fontStyle(with: .body)
                         }
+                        HStack {
+                            Button(title: "Rate this movie", type:.secondary) {
+                                showError = (true, "Rating feature is comming in next version.")
+                            }
+                            Button(title: "Add to Favourites", type:.primary) {
+                                showError = (true, "Favourites feature is comming in next version.")
+                            }
+                        }
                         
                     }
                 }
                 Spacer()
             }
             .padding(Dimension.points16)
-            
+        }.alert("Stay Tuned", isPresented: $showError.0, actions: {}) {
+            Text(showError.1).fontStyle(with: .caption)
         }
         
     }
