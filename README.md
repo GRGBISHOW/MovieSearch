@@ -37,14 +37,17 @@ Just download the project and let the packages get resolved. And It's ready to b
 
 ![demo_1](https://github.com/GRGBISHOW/MovieSearch/assets/20558114/d646603d-47de-4431-92ff-39a30eda07c6)
 
+## Coverage
+I have added the coverage report which provides valuable insights into the quality and effectiveness of our test suite. By analyzing the coverage report, we can assess which parts of our codebase are adequately tested and identify areas that may require additional testing. I havenot added UITests as you can see coverage are low for UI files.
 
+![Screenshot 2024-04-09 at 9 02 13 pm](https://github.com/GRGBISHOW/MovieSearch/assets/20558114/8619eb78-b550-46db-8886-257ef8a55b7f)
 
 
 ## Future:
 * Favorite List
 * Search via API
 * UI Tests
-* Localize Strings and Error Message
+* Localize Strings
 
 
 ## App Behaviour
