@@ -10,7 +10,11 @@ import Foundation
 import MinimalNetworking
 import Network
 
-struct MoviesWebDataProvider {
+protocol MoviesWebDataRepository {
+    func loadMovies(loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error>
+}
+struct MoviesWebDataProvider: MoviesWebDataRepository {
+    
     func loadMovies(loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error> {
         MovieAPI.prepareLoad(loadType: loadType)
         return MovieAPI.load()

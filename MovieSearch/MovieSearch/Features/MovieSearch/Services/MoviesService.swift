@@ -9,7 +9,12 @@ import Combine
 import Foundation
 import MinimalNetworking
 
-struct MovieService {
+protocol MovieServicesProvider {
+    func load(loadType: LoadType) -> AnyPublisher<PaginationData<Movie>, Error>
+    func searchMovies(searchText: String) -> AnyPublisher<PaginationData<Movie>, Never>
+}
+
+struct MovieService: MovieServicesProvider {
     
     private let webDataProvider: MoviesWebDataProvider
     private let dbDataProvider: MoviesDBDataProvider

@@ -9,8 +9,15 @@ import Foundation
 import Combine
 import CoreData
 
-class MoviesDBDataProvider {
-    let persistentStore: PersistentStoreProvider
+protocol MoviesDBDataRepository {
+    func store(movies: [Movie]) -> AnyPublisher<Void, Error>
+    func deleteMovies() -> AnyPublisher<Void, Error>
+    func movies(search: String, loadType: LoadType, dataAmount: DataAmount) -> AnyPublisher<[Movie], Error>
+    func hasLoadedMovies() -> AnyPublisher<Bool, Error>
+}
+
+class MoviesDBDataProvider: MoviesDBDataRepository {
+    private let persistentStore: PersistentStoreProvider
     private(set) var lastOffset = 0
     
     init(persistentStore: PersistentStoreProvider) {

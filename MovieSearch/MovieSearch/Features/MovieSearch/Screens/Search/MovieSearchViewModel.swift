@@ -10,24 +10,19 @@ import Foundation
 
 class MovieSearchViewModel: ObservableObject {
     
-    let service: MovieService
+    private let service: MovieService
     @Published private(set)var movies: Set<Movie> = []
-    @Published var isMorePageAvailable = false
-    @Published var showError: (Bool, String) = (false, "")
-    @Published var isInternet = false
+    @Published private(set) var isMorePageAvailable = false
+    @Published private(set) var showError: (Bool, String) = (false, "")
+    @Published private(set) var isInternet = false
     @Published private(set) var searchedMovies: Set<Movie> = []
     
     private var bag = Set<AnyCancellable>()
     
     init(movieService: MovieService = MovieService()) {
         self.service = movieService
-        Dependencies.networkMonitor.publisher()
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.isInternet, on: self)
-            
-            .store(in: &bag)
+        addObservers()
     }
-   
     
     func loadMovies(loadType: LoadType) {
         service.load(loadType: loadType)
@@ -56,6 +51,15 @@ class MovieSearchViewModel: ObservableObject {
                 guard let self else { return }
                 self.searchedMovies = Set(result.models)
             })
+            .store(in: &bag)
+    }
+    
+    
+    private func addObservers() {
+        Dependencies.networkMonitor.publisher()
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isInternet, on: self)
+            
             .store(in: &bag)
     }
     
