@@ -13,7 +13,7 @@ Connecting it all together is the ViewModel layer, responsible for mediating bet
 
 
 ## Installation
-This project only has two SPM package dependencies which are also written by myself. I mostly use theom to construct POC for ideas. Please feel free to have a look. 
+This project only has two SPM package dependencies which are also written by myself. I mostly use them to construct POC for ideas. Please feel free to have a look. 
 
 [Minimal Networking](https://github.com/GRGBISHOW/MinimalNetworking)
 
